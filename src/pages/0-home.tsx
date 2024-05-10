@@ -3,8 +3,10 @@ export const Home: React.FC = () => {
     <>
       <div className='text-center mb-12'>
         <img src='/hackforge.png' className='h-24 mx-auto mb-4' />
-        <h1 className='text-5xl font-semibold mb-1'>Intro to React</h1>
-        <h2 className='text-2xl mb-10'>Web Development Interest Group</h2>
+        <h1 className='text-3xl font-semibold mb-1'>React Workshop</h1>
+        <h2 className='text-5xl font-semibold'>
+          Building Interactive Components
+        </h2>
       </div>
       <div className='mx-auto w-fit'>
         <div className='mx-auto pl-5'>

@@ -1,18 +1,26 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Home } from './pages/0-home';
 import { Components } from './pages/1-components';
+import { Events } from './pages/2-events';
+import { State } from './pages/3-state';
+import { Rendering } from './pages/4-rendering';
+import { Scaling } from './pages/5-scaling';
 
 const slides = [
   <Home />,
   <Components />,
-  <h1>Slide 2</h1>,
-  <h1>Slide 3</h1>,
-  <h1>Slide 4</h1>,
-  <h1>Slide 5</h1>,
+  <Events />,
+  <State />,
+  <Rendering />,
+  <Scaling />,
 ];
 
 function App() {
   const [slide, setSlide] = useState(0);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slide]);
 
   return (
     <div className='min-h-screen flex flex-col justify-between w-full max-w-5xl mx-auto px-4'>
