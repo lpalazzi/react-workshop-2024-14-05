@@ -9,7 +9,19 @@ export const Events: React.FC = () => {
         code: /src/pages/2-events.tsx
       </p>
 
-      <H2>Event handler functions</H2>
+      <H2>Overview</H2>
+      <ul className='list-disc pl-5 mb-5'>
+        <li>
+          In React, you can add <i>event handlers</i> to your JSX
+        </li>
+        <li>
+          Event handlers are your own functions that will be triggered in
+          response to user interactions
+        </li>
+        <li>For example: clicking, hovering, focusing on form inputs, etc</li>
+      </ul>
+
+      <H2>Defining event handler functions</H2>
       <ul className='list-disc pl-5 mb-5'>
         <li>
           Handle events by passing a function as a prop to an element (passed,{' '}
@@ -51,9 +63,9 @@ export const Events: React.FC = () => {
 
       <H2>Activity</H2>
       <p>
-        The button below is defined as a component called <code>FunButton</code>
-        , but it currently doesn't do anything . Modify the component so that it
-        calls the <code>HaveSomeFun</code> function (imported from{' '}
+        The button below is a component called <code>FunButton</code>, but it
+        currently doesn't do anything . Modify the component so that it calls
+        the <code>HaveSomeFun</code> function (imported from{' '}
         <code>../utils</code>) when clicked. Try passing the event handler as a
         prop to the button component.
       </p>

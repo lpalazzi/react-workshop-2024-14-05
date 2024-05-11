@@ -14,7 +14,7 @@ export const Home: React.FC = () => {
             Requirements{' '}
             <span className='font-normal italic mt-1'>
               (recommended: install both using{' '}
-              <span className='font-mono font-semibold'>nvm</span>)
+              <code className='font-semibold'>nvm</code>)
             </span>
           </h2>
           <ul className='list-disc pl-5 ml-4'>

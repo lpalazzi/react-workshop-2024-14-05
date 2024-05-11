@@ -1,7 +1,9 @@
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { vs2015 } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
-export const CodeBlock: React.FC<{ code: string }> = ({ code }) => {
+export const CodeBlock: React.FC<{
+  code: string;
+}> = ({ code }) => {
   return (
     <div className='rounded-lg shadow-xl mb-8'>
       <SyntaxHighlighter
