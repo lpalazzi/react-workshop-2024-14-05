@@ -25,7 +25,7 @@ export const Home: React.FC = () => {
         <div className='mt-5 p-5 bg-slate-800 rounded-lg font-mono shadow-xl w-fit'>
           <p className='mb-1'>
             {'>'} git clone
-            https://github.com/hackf/react-workshop-2024-14-05.git
+            https://github.com/lpalazzi/react-workshop-2024-14-05.git
           </p>
           <p className='mb-1'>{'>'} cd react-workshop-2024-14-05</p>
           <p className='mb-1'>{'>'} npm install</p>
