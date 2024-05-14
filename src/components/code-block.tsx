@@ -5,7 +5,7 @@ export const CodeBlock: React.FC<{
   code: string;
 }> = ({ code }) => {
   return (
-    <div className='rounded-lg shadow-xl mb-8'>
+    <div className='rounded-lg shadow-xl mb-10'>
       <SyntaxHighlighter
         language='tsx'
         style={{

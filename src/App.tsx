@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import { Home } from './pages/0-home';
-import { Components } from './pages/1-components';
-import { Events } from './pages/2-events';
-import { State } from './pages/3-state';
-import { Rendering } from './pages/4-rendering';
-import { Scaling } from './pages/5-scaling';
+import { Home } from './slides/0-home';
+import { Components } from './slides/1-components';
+import { Events } from './slides/2-events';
+import { State } from './slides/3-state';
+import { Rendering } from './slides/4-rendering';
+import { Activity } from './slides/6-activity';
+import { StateUpdates } from './slides/5-state-updates';
 
 const slides = [
   <Home />,
@@ -12,7 +13,8 @@ const slides = [
   <Events />,
   <State />,
   <Rendering />,
-  <Scaling />,
+  <StateUpdates />,
+  <Activity />,
 ];
 
 function App() {

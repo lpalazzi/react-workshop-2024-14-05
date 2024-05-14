@@ -1,6 +1,22 @@
-# Building Interactive Components
+# React Workshop: Building Interactive Components
 
-- Creating reusable components
-- Handling user inputs and events
-- Basic state management and component rendering
-- Best practices for building scalable user interfaces
+### Requirements
+
+- Node.js (version 20+ preferred)
+- npm
+
+You can install both using nvm
+
+### Run the app
+
+To install node packages:
+
+```
+> npm install
+```
+
+To start development server:
+
+```
+> npm run dev
+```

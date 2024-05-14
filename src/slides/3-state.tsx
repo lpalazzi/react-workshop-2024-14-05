@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { CodeBlock } from '../components/code-block';
+import { H2 } from '../components/h2';
 
 export const State: React.FC = () => {
   return (
@@ -36,7 +37,25 @@ export const State: React.FC = () => {
         </li>
       </ul>
       <div className='flex gap-4 w-full items-start'>
-        <Example1 />
+        <CodeBlock
+          code={`
+                  function Button() {
+                    const [count, setCount] = useState(0);
+                  
+                    function handleClick() {
+                      setCount(count + 1);
+                    }
+                  
+                    return (
+                      <button
+                        onClick={handleClick}
+                      >
+                        Clicked {count} times
+                      </button>
+                    );
+                  }
+            `}
+        />
         <Button />
       </div>
 
@@ -62,55 +81,6 @@ export const State: React.FC = () => {
   );
 };
 
-function TextInput() {
-  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    // hint: the new value is in e.target.value
-  }
-
-  return (
-    <div className='mt-10 flex justify-center items-center gap-10'>
-      <input
-        type='text'
-        className='border border-white px-2 py-1 rounded text-slate-900'
-        placeholder='Enter your name'
-        onChange={handleChange}
-      />
-      <p>
-        Hello,{' '}
-        <span className='font-semibold'>
-          {/* display name state value here */}
-        </span>
-      </p>
-    </div>
-  );
-}
-
-function H2({ children }: { children?: React.ReactNode }) {
-  return <h2 className='text-xl font-semibold mb-1'>{children}</h2>;
-}
-
-function Example1() {
-  return (
-    <CodeBlock
-      code={`
-              function Button() {
-                const [count, setCount] = useState(0);
-              
-                function handleClick() {
-                  setCount(count + 1);
-                }
-              
-                return (
-                  <button onClick={handleClick}>
-                    Clicked {count} times
-                  </button>
-                );
-              }
-            `}
-    />
-  );
-}
-
 function Button() {
   const [count, setCount] = useState(0);
 
@@ -125,5 +95,30 @@ function Button() {
     >
       Clicked {count} times
     </button>
+  );
+}
+
+// Activity code below
+
+function TextInput() {
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    // hint: e.target.value is the updated input value after the event
+  }
+
+  return (
+    <div className='mt-8'>
+      <input
+        type='text'
+        className='border border-white px-2 py-1 rounded text-slate-900'
+        placeholder='Enter some text'
+        onChange={handleChange}
+      />
+      <p>
+        The value of the input above is:{' '}
+        <span className='font-semibold'>
+          {/* display value of the input here */}
+        </span>
+      </p>
+    </div>
   );
 }
