@@ -58,15 +58,16 @@ export const Events: React.FC = () => {
           but not specify behaviour
         </li>
       </ul>
-      <CodeBlock
-        code={`
+      <div className='flex gap-4 w-full items-start'>
+        <CodeBlock
+          code={`
               function SubmitButton(props: {
                 onClick: () => void;
                 children: React.ReactNode;
               }) {
                 return (
                   <button
-                    className='bg-green-700 text-white font-semibold'
+                    className='bg-green-700 text-white font-semibold px-2 py-1 rounded'
                     onClick={props.onClick}
                   >
                     {props.children}
@@ -86,7 +87,9 @@ export const Events: React.FC = () => {
                 );
               }
             `}
-      />
+        />
+        <SubmitButton onClick={() => alert('Submitted!')}>Submit</SubmitButton>
+      </div>
       <H2>Accessing event data</H2>
       <ul className='list-disc pl-5 mb-5'>
         <li>
@@ -108,9 +111,9 @@ export const Events: React.FC = () => {
       <H2>Activity</H2>
       <p>
         The button below is a component called <code>FunButton</code>, but it
-        currently doesn't do anything . Modify the component so that it calls
-        the <code>HaveSomeFun</code> function when clicked. Try passing the
-        event handler as a prop to the button component.
+        currently doesn't do anything. Modify the component so that it calls the{' '}
+        <code>fun()</code> function when clicked. Try passing the event handler
+        as a prop to the button component.
       </p>
       <div className='flex flex-row items-center justify-center mt-6'>
         <FunButton>Have some fun</FunButton>
@@ -130,6 +133,20 @@ const AlertButton = () => {
   );
 };
 
+function SubmitButton(props: {
+  onClick: () => void;
+  children: React.ReactNode;
+}) {
+  return (
+    <button
+      className='bg-green-700 text-white font-semibold px-2 py-1 rounded'
+      onClick={props.onClick}
+    >
+      {props.children}
+    </button>
+  );
+}
+
 // Activity code below
 
 function FunButton(props: { children?: React.ReactNode }) {
@@ -140,17 +157,17 @@ function FunButton(props: { children?: React.ReactNode }) {
   );
 }
 
-function haveSomeFun() {
+function fun() {
   const originalTransform = document.body.style.transform;
   let degree = 0;
 
   const intervalId = setInterval(() => {
     document.body.style.transform = `rotate(${degree}deg)`;
     degree += 10;
-  }, 100); // rotate 10 degrees every 100ms
+  }, 100);
 
   setTimeout(() => {
     clearInterval(intervalId);
     document.body.style.transform = originalTransform;
-  }, 5000); // stop rotating after 5 seconds
+  }, 5000);
 }

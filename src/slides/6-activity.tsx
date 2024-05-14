@@ -13,7 +13,7 @@ export const Activity: React.FC = () => {
 };
 
 function Race() {
-  // create two state variables to track the progress of each player, and one to track the current turn
+  // create two state variables to track the progress of each player, and one to track whose turn it is
   // initial values:
   const playerOneProgress = 0;
   const playerTwoProgress = 0;
@@ -21,8 +21,9 @@ function Race() {
 
   function handlePlayerMove() {
     // This function should:
-    // - add a random distance between 0 and 10 to the current player's progress (hint: Math.floor(Math.random() * 10))
+    // - add the random distance to the current player's progress
     // - Switch the turn to the other player
+    const randomDistance = Math.floor(Math.random() * 10);
   }
 
   function resetGame() {

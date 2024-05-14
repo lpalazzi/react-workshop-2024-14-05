@@ -45,6 +45,12 @@ export const StateUpdates: React.FC = () => {
       />
 
       <H2>Multiple state updates</H2>
+      <ul className='list-disc pl-5 mb-5'>
+        <li>
+          React waits until all code in the event handlers is executed before
+          processing the state updates (batching)
+        </li>
+      </ul>
       <CodeBlock
         code={`
                 function Button() {
@@ -53,7 +59,7 @@ export const StateUpdates: React.FC = () => {
                   function handleClick() {
                     setCount(count + 1);
                     setCount(count + 1);
-                    // What will be the value of count in the next render?
+                    // Value of count in the next render: 1
                   }
                 
                   return <button onClick={handleClick}>Clicked {count} times</button>;
@@ -65,11 +71,22 @@ export const StateUpdates: React.FC = () => {
           Sometimes you might want to perform multiple operations on a state
           value before the next render
         </li>
-        <li>
-          React waits until all code in the event handlers is executed before
-          processing the state updates (batching)
-        </li>
       </ul>
+      <CodeBlock
+        code={`
+                function Button() {
+                  const [count, setCount] = useState(0);
+                
+                  function handleClick() {
+                    setCount(count + 1);
+                    setCount(c => c + 1);
+                    // Value of count in the next render: 2
+                  }
+                
+                  return <button onClick={handleClick}>Clicked {count} times</button>;
+                }
+            `}
+      />
     </div>
   );
 };

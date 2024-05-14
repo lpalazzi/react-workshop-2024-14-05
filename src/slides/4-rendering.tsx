@@ -79,12 +79,11 @@ function Example() {
 
   return (
     <div className='w-full bg-slate-700 p-4 rounded-lg'>
-      <p>You clicked {count} times</p>
       <button
         className='bg-slate-900 text-white font-semibold px-2 py-1 rounded'
         onClick={handleClick}
       >
-        Click me
+        Parent: {count}
       </button>
       <Child />
     </div>
@@ -92,6 +91,22 @@ function Example() {
 }
 
 function Child() {
+  const [count, setCount] = useState(0);
+
   console.log('CHILD RENDERED');
-  return <p>Child component</p>;
+
+  const handleClick = () => {
+    setCount(count + 1); // this triggers a re-render
+  };
+
+  return (
+    <div className='w-fit mt-4 bg-blue-500 p-4 rounded-lg'>
+      <button
+        className='bg-slate-900 text-white font-semibold px-2 py-1 rounded'
+        onClick={handleClick}
+      >
+        Child: {count}
+      </button>
+    </div>
+  );
 }

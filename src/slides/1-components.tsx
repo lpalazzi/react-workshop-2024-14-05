@@ -46,11 +46,13 @@ function Example() {
               };
 
               // using the component
-              const example = (
-                <div>
-                  <SimpleComponent content='Hello, world!' />
-                </div>
-              );
+              function ParentComponent() {
+                return (
+                  <div>
+                    <SimpleComponent content='Hello, world!' />
+                  </div>
+                );
+              }
             `}
     />
   );
