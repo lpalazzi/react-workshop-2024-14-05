@@ -20,10 +20,10 @@ export const Components: React.FC = () => {
         </li>
       </ul>
 
-      <h2 className='text-xl font-semibold mb-1 mt-10'>Example</h2>
+      <H2>Example</H2>
       <Example />
 
-      <h2 className='text-xl font-semibold mb-1 mt-10'>Activity</h2>
+      <H2>Activity</H2>
       <p>
         There are two {'<h2>'} tags in this file with the same classes. Replace
         both with a single reusable component called H2.
@@ -31,6 +31,10 @@ export const Components: React.FC = () => {
     </div>
   );
 };
+
+function H2(props: { children: React.ReactNode }) {
+  return <h2 className='text-xl font-semibold mb-1 mt-10'>{props.children}</h2>;
+}
 
 function Example() {
   return (

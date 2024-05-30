@@ -101,8 +101,12 @@ function Button() {
 // Activity code below
 
 function TextInput() {
+  const [value, setValue] = useState('');
+
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     // hint: e.target.value is the updated input value after the event
+    const newValue = e.target.value;
+    setValue(newValue);
   }
 
   return (
@@ -115,9 +119,7 @@ function TextInput() {
       />
       <p>
         The value of the input above is:{' '}
-        <span className='font-semibold'>
-          {/* display value of the input here */}
-        </span>
+        <span className='font-semibold'>{value}</span>
       </p>
     </div>
   );

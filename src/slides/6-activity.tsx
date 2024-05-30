@@ -15,19 +15,29 @@ export const Activity: React.FC = () => {
 function Race() {
   // create two state variables to track the progress of each player, and one to track whose turn it is
   // initial values:
-  const playerOneProgress = 0;
-  const playerTwoProgress = 0;
-  const turn = 'Player One';
+  const [playerOneProgress, setPlayerOneProgress] = useState(0);
+  const [playerTwoProgress, setPlayerTwoProgress] = useState(0);
+  const [turn, setTurn] = useState('Player One');
 
   function handlePlayerMove() {
     // This function should:
     // - add the random distance to the current player's progress
     // - Switch the turn to the other player
     const randomDistance = Math.floor(Math.random() * 10);
+    if (turn === 'Player One') {
+      setPlayerOneProgress(playerOneProgress + randomDistance);
+      setTurn('Player Two');
+    } else {
+      setPlayerTwoProgress(playerTwoProgress + randomDistance);
+      setTurn('Player One');
+    }
   }
 
   function resetGame() {
     // This function should reset the game
+    setPlayerOneProgress(0);
+    setPlayerTwoProgress(0);
+    setTurn('Player One');
   }
 
   const playerHasWon = playerOneProgress >= 100 || playerTwoProgress >= 100;
@@ -41,7 +51,7 @@ function Race() {
             paddingTop: `${Math.max(0, Math.floor(100 - playerOneProgress))}px`,
           }}
         >
-          <PlayerCard />
+          <PlayerCard label='Player One' />
         </div>
         <div
           className=' border-t-2 border-white'
@@ -49,7 +59,7 @@ function Race() {
             paddingTop: `${Math.max(0, Math.floor(100 - playerTwoProgress))}px`,
           }}
         >
-          <PlayerCard />
+          <PlayerCard label='Player Two' />
         </div>
         <div className='flex flex-col items-center gap-6 ml-6'>
           {playerHasWon ? (
@@ -61,25 +71,25 @@ function Race() {
           ) : (
             <>
               <p>{turn}'s turn</p>
-              <Button>Move</Button>
+              <Button onClick={handlePlayerMove}>Move</Button>
             </>
           )}
         </div>
       </div>
       {playerHasWon && (
         <div className='flex justify-center mt-20'>
-          <Button>Reset</Button>
+          <Button onClick={resetGame}>Reset</Button>
         </div>
       )}
     </>
   );
 }
 
-function PlayerCard() {
+function PlayerCard({ label }: { label: string }) {
   // display "Player 1" and "Player 2" on the component instances
   return (
     <div className='bg-green-700 text-white font-semibold px-2 py-8 rounded-md min-w-32 mx-4'>
-      {/* label here */}
+      {label}
     </div>
   );
 }

@@ -151,7 +151,10 @@ function SubmitButton(props: {
 
 function FunButton(props: { children?: React.ReactNode }) {
   return (
-    <button className='border border-white font-bold px-4 py-2 rounded hover:bg-white hover:text-slate-900'>
+    <button
+      onClick={fun}
+      className='border border-white font-bold px-4 py-2 rounded hover:bg-white hover:text-slate-900'
+    >
       {props.children}
     </button>
   );

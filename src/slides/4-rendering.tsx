@@ -105,7 +105,7 @@ function Child() {
         className='bg-slate-900 text-white font-semibold px-2 py-1 rounded'
         onClick={handleClick}
       >
-        Child: {count}
+        Child:
       </button>
     </div>
   );
